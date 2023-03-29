@@ -39,7 +39,7 @@ resource "aws_db_instance" "wordpressdb" {
 }
 
 # change USERDATA variable value after grabbing RDS endpoint info
-data "template_file" "user_data" {
+/*data "template_file" "user_data" {
   template = var.IsUbuntu ? file("userdata_ubuntu.tpl") : file("user_data.tpl")
   vars = {
     db_username      = var.database_user
@@ -47,7 +47,7 @@ data "template_file" "user_data" {
     db_name          = var.database_name
     db_RDS           = aws_db_instance.wordpressdb.endpoint
   }
-}
+}*/
 
 output "RDS-Endpoint" {
   value = aws_db_instance.wordpressdb.endpoint
